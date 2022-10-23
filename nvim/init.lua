@@ -22,10 +22,13 @@ set.expandtab=true
 set.shiftwidth=2
 set.tabstop=4
 
--- Plugin configurations
+-- Enable NERDTree and disable Netrw
 vim.g.NERDTreeShowHidden=1 -- Show hidden files
-vim.g.NERDTreeHijackNetrw=1 -- Hijack :Ex, :Rex,... commands to use NerdTree instead of Netrw
+vim.g.NERDTreeHijackNetrw=1
 
 -- Require modules
 require('plugins')
+
+-- Load mappings
+vim.cmd('so ~/.config/nvim/mappings.vim')
 
