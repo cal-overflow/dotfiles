@@ -6,14 +6,24 @@ vim.call('plug#begin')
     Plug('preservim/nerdtree')
     Plug('ap/vim-css-color')
     Plug('preservim/nerdcommenter')
-    -- Plug('iamcco/markdown-preview.nvim', { 'do' = 'cd app && yarn install' })
+
+    -- Appearance
+    Plug('vim-airline/vim-airline')
+    Plug('vim-airline/vim-airline-themes')
+    Plug('sonph/onehalf', { rtp = 'vim' })
 
     -- Git
     Plug('airblade/vim-gitgutter')
-
-    -- Appearance
-    Plug('tanvirtin/monokai.nvim')
-    Plug('vim-airline/vim-airline')
-
 vim.call('plug#end')
 
+-- Configure theme (onehalf-dark)
+vim.cmd('colorscheme onehalfdark')
+vim.g.colorscheme='onehalfdark'
+vim.g.airline_theme='onehalfdark'
+vim.cmd([[
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+]])

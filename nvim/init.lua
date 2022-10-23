@@ -2,13 +2,13 @@
 
 local set = vim.opt
 
-set.background=dark
-set.clipboard=unnamedplus
-set.completeopt=noinsert,menuone,noselect
+set.background='dark'
+set.clipboard='unnamedplus'
+set.completeopt='noinsert,menuone,noselect'
 set.cursorline=true
 set.hidden=true
-set.inccommand=split
-set.mouse=a -- this is what enables mouse interaction :)
+set.inccommand='split'
+set.mouse='a'
 set.number=true
 
 set.splitbelow=true

@@ -28,3 +28,9 @@ A plugin manager must be used in order for plugins to be installed and function 
 :PlugClean
 ```
 
+##### Lua
+Some "translations" from regular vim config to lua that may be helpful:
+| vim | lua |
+| :-: | :-: |
+| `let g:variable='value'` | `vim.g.variable='value'` |
+
