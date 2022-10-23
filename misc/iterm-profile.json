@@ -1,8 +1,8 @@
 {
-  "Ansi 2 Color" : {
+  "Ansi 6 Color" : {
     "Green Component" : 0.73333334922790527,
     "Red Component" : 0,
-    "Blue Component" : 0
+    "Blue Component" : 0.73333334922790527
   },
   "Tags" : [
 
@@ -12,26 +12,36 @@
     "Red Component" : 0.3333333432674408,
     "Blue Component" : 1
   },
-  "Normal Font" : "PTMono-Regular 16",
+  "Ansi 7 Color" : {
+    "Green Component" : 0.73333334922790527,
+    "Red Component" : 0.73333334922790527,
+    "Blue Component" : 0.73333334922790527
+  },
   "Draw Powerline Glyphs" : false,
   "Bold Color" : {
     "Green Component" : 1,
     "Red Component" : 1,
     "Blue Component" : 1
   },
-  "Ansi 4 Color" : {
-    "Green Component" : 0,
-    "Red Component" : 0,
-    "Blue Component" : 0.73333334922790527
+  "Ansi 8 Color" : {
+    "Green Component" : 0.3333333432674408,
+    "Red Component" : 0.3333333432674408,
+    "Blue Component" : 0.3333333432674408
   },
-  "Right Option Key Sends" : 0,
-  "Ansi 6 Color" : {
-    "Green Component" : 0.73333334922790527,
-    "Red Component" : 0,
+  "Ansi 9 Color" : {
+    "Green Component" : 0.3333333432674408,
+    "Red Component" : 1,
+    "Blue Component" : 0.3333333432674408
+  },
+  "Ansi 5 Color" : {
+    "Green Component" : 0,
+    "Red Component" : 0.73333334922790527,
     "Blue Component" : 0.73333334922790527
   },
   "Rows" : 30,
   "Default Bookmark" : "No",
+  "Use Non-ASCII Font" : false,
+  "AWDS Tab Option" : "Recycle",
   "Non-ASCII Anti Aliased" : true,
   "Use Bright Bold" : true,
   "Ansi 10 Color" : {
@@ -40,6 +50,7 @@
     "Blue Component" : 0.3333333432674408
   },
   "Ambiguous Double Width" : false,
+  "AWDS Pane Option" : "Recycle",
   "Jobs to Ignore" : [
     "rlogin",
     "ssh",
@@ -58,19 +69,22 @@
   },
   "Working Directory" : "\/Users\/clisle",
   "Blinking Cursor" : true,
-  "Disable Window Resizing" : true,
+  "AWDS Window Option" : "No",
   "Sync Title" : false,
   "Prompt Before Closing 2" : false,
   "BM Growl" : true,
   "Command" : "",
   "Description" : "Default",
-  "Mouse Reporting" : true,
+  "AWDS Pane Directory" : "",
+  "Disable Window Resizing" : true,
   "Screen" : -1,
   "Selection Color" : {
     "Green Component" : 0.8353000283241272,
     "Red Component" : 0.70980000495910645,
     "Blue Component" : 1
   },
+  "Mouse Reporting" : true,
+  "AWDS Window Directory" : "",
   "Only The Default BG Color Uses Transparency" : false,
   "Columns" : 100,
   "Idle Code" : 0,
@@ -296,44 +310,36 @@
     "Red Component" : 0.73333334922790527,
     "Blue Component" : 0.73333334922790527
   },
-  "Transparency" : 0.14999999999999999,
-  "Ansi 1 Color" : {
-    "Green Component" : 0,
-    "Red Component" : 0.73333334922790527,
-    "Blue Component" : 0
-  },
-  "Custom Directory" : "No",
-  "Ansi 3 Color" : {
-    "Green Component" : 0.73333334922790527,
-    "Red Component" : 0.73333334922790527,
-    "Blue Component" : 0
-  },
-  "Horizontal Spacing" : 1,
-  "Ansi 5 Color" : {
-    "Green Component" : 0,
-    "Red Component" : 0.73333334922790527,
-    "Blue Component" : 0.73333334922790527
-  },
-  "Use Non-ASCII Font" : false,
-  "Ansi 7 Color" : {
-    "Green Component" : 0.73333334922790527,
-    "Red Component" : 0.73333334922790527,
-    "Blue Component" : 0.73333334922790527
-  },
-  "Ansi 8 Color" : {
-    "Green Component" : 0.3333333432674408,
-    "Red Component" : 0.3333333432674408,
-    "Blue Component" : 0.3333333432674408
-  },
-  "Ansi 9 Color" : {
-    "Green Component" : 0.3333333432674408,
-    "Red Component" : 1,
-    "Blue Component" : 0.3333333432674408
-  },
   "Ansi 0 Color" : {
     "Green Component" : 0,
     "Red Component" : 0,
     "Blue Component" : 0
   },
-  "Guid" : "CE6E4EAC-E8A8-4799-A0D7-102DF089F305"
+  "Ansi 1 Color" : {
+    "Green Component" : 0,
+    "Red Component" : 0.73333334922790527,
+    "Blue Component" : 0
+  },
+  "Ansi 2 Color" : {
+    "Green Component" : 0.73333334922790527,
+    "Red Component" : 0,
+    "Blue Component" : 0
+  },
+  "Custom Directory" : "Advanced",
+  "Ansi 4 Color" : {
+    "Green Component" : 0,
+    "Red Component" : 0,
+    "Blue Component" : 0.73333334922790527
+  },
+  "Guid" : "CE6E4EAC-E8A8-4799-A0D7-102DF089F305",
+  "Horizontal Spacing" : 1,
+  "Ansi 3 Color" : {
+    "Green Component" : 0.73333334922790527,
+    "Red Component" : 0.73333334922790527,
+    "Blue Component" : 0
+  },
+  "AWDS Tab Directory" : "",
+  "Normal Font" : "PTMono-Regular 16",
+  "Transparency" : 0.14999999999999999,
+  "Right Option Key Sends" : 0
 }
