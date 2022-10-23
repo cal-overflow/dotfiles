@@ -1,0 +1,20 @@
+# General aliases
+alias desktop='cd ~/Desktop'
+alias Desktop='cd ~/Desktop'
+alias downloads='cd ~/Downloads'
+alias Downloads='cd ~/Downloads'
+alias Workspace='cd ~/Workspace'
+alias workspace='cd ~/Workspace'
+alias ws='cd ~/Workspace'
+alias refresh='source ~/.zshrc' # I'm lazy
+
+# Git aliases
+alias gco='git checkout'
+
+# Workflow aliases
+alias n='nvim' # what can I say, I'm lazy
+alias edit='code' # edit {filename or dir} opens file "filename" or directory "dir" in vscode
+
+# ssh aliases
+alias keys='cd ~/Documents/.keys'
+
