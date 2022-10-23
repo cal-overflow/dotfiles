@@ -1,6 +1,9 @@
 # .config
 Some of my configuration files.
 
+## [zsh](https://www.zsh.org/)
+Zsh jazzed up with [Oh my ZSH](https://ohmyz.sh/) is my shell of choice.
+
 ## [Neovim](https://neovim.io)
 
 Resources I've found helpful while learning Neovim:
