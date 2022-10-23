@@ -22,9 +22,10 @@ set.expandtab=true
 set.shiftwidth=2
 set.tabstop=4
 
--- TODO - figure out how to enable hidden files with nerd tree (now that this is with lua)
+-- Plugin configurations
 vim.g.NERDTreeShowHidden=1 -- Show hidden files
+vim.g.NERDTreeHijackNetrw=1 -- Hijack :Ex, :Rex,... commands to use NerdTree instead of Netrw
 
--- Require Plugins module (./lua/plugins.lua')
+-- Require modules
 require('plugins')
 
