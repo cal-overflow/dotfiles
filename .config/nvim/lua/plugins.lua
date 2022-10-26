@@ -9,6 +9,7 @@ vim.call('plug#begin')
     Plug('godlygeek/tabular')
     Plug('plasticboy/vim-markdown') -- Note tabular MUST be defined before this
     Plug('mg979/vim-visual-multi', { branch = 'master' })
+    Plug('neoclide/coc.nvim', {branch = 'release'})
 
     -- Appearance
     Plug('vim-airline/vim-airline')

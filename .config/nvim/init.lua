@@ -10,6 +10,8 @@ set.hidden=true
 set.inccommand='split'
 set.mouse='a'
 set.number=true
+set.modifiable=true
+set.guicursor='n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon1'
 
 set.splitbelow=true
 set.splitright=true
@@ -25,10 +27,12 @@ set.tabstop=4
 -- Enable NERDTree and disable Netrw
 vim.g.NERDTreeShowHidden=1 -- Show hidden files
 vim.g.NERDTreeHijackNetrw=1
+-- vim.g.NERDTreeShowLineNumbers=0
 
 -- Require modules
 require('plugins')
 
 -- Load mappings
 vim.cmd('so ~/.config/nvim/mappings.vim')
+
 
