@@ -8,8 +8,8 @@ vim.call('plug#begin')
     Plug('preservim/nerdcommenter')
     Plug('godlygeek/tabular')
     Plug('plasticboy/vim-markdown') -- Note tabular MUST be defined before this
-    Plug('mg979/vim-visual-multi', { branch = 'master' })
     Plug('neoclide/coc.nvim', {branch = 'release'})
+    Plug('tpope/vim-surround')
 
     -- LSP (Language Server)
     Plug('neovim/nvim-lspconfig')
