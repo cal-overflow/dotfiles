@@ -37,3 +37,8 @@ Some "translations" from regular vim config to lua that may be helpful:
 | :-: | :-: |
 | `let g:variable='value'` | `vim.g.variable='value'` |
 
+##### Other dependencies
+The following dependencies may be needed for neovim to work properly.
+- LTS node
+  - pyright npm package
+
