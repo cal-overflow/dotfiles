@@ -24,6 +24,10 @@ vim.call('plug#begin')
 
     -- Fun
     Plug('wakatime/vim-wakatime')
+
+    -- "Hard mode" lol (allows for disabling arrow keys)
+    Plug('wikitopian/hardmode')
+
 vim.call('plug#end')
 
 -- Configure NERDTree - these commands are from the plugin's GitHub repo
@@ -70,4 +74,9 @@ end
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
 keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
 keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+
+-- Enable/Configure hard mode
+vim.g.HardMode_level='wannabe'
+vim.g.HardMode_hardmodeMsg='Arrow Keys = 💩'
+vim.cmd('autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()')
 

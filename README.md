@@ -42,3 +42,6 @@ The following dependencies may be needed for neovim to work properly.
 - LTS node
   - pyright npm package
 
+##### Other helpful resources
+- [multiline editing (multi-cursor alternative) - Stack Overflow](https://stackoverflow.com/questions/11784408/vim-multiline-editing-like-in-sublimetext)
+
