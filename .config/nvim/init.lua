@@ -10,6 +10,7 @@ set.hidden=true
 set.inccommand='split'
 set.mouse='a'
 set.number=true
+set.relativenumber=true
 set.modifiable=true
 set.guicursor='n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon1'
 
