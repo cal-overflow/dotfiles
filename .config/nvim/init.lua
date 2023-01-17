@@ -13,6 +13,7 @@ set.number=true
 set.relativenumber=true
 set.modifiable=true
 set.guicursor='n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon1'
+set.spell=true
 
 set.splitbelow=true
 set.splitright=true
