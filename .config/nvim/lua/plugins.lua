@@ -21,6 +21,8 @@ vim.call('plug#begin')
 
     -- Git
     Plug('airblade/vim-gitgutter')
+    Plug('nvim-lua/plenary.nvim') -- Dependency for sindrets/diffview.nvim
+    Plug('sindrets/diffview.nvim') -- Dependent on nvim-lua/plenary.nvim
 
     -- Fun
     Plug('wakatime/vim-wakatime')
@@ -80,3 +82,8 @@ vim.g.HardMode_level='wannabe'
 vim.g.HardMode_hardmodeMsg='Arrow Keys = 💩'
 vim.cmd('autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()')
 
+-- Configure gitdiff
+require("diffview").setup({
+  use_icons = false,
+})
+vim.cmd 'command! Diff DiffviewOpen' -- create alias
