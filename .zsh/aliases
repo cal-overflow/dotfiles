@@ -8,12 +8,14 @@ alias workspace='cd ~/Workspace'
 alias ws='cd ~/Workspace'
 alias refresh='source ~/.zshrc' # I'm lazy
 
+
 # Git aliases
 alias gco='git checkout'
 
 # Workflow aliases
 alias n='nvim' # what can I say, I'm lazy
 alias edit='code' # edit {filename or dir} opens file "filename" or directory "dir" in vscode
+alias venv='source ./venv/bin/activate' # Save a lil bit of time
 
 # ssh aliases
 alias keys='cd ~/Documents/.keys'
