@@ -16,6 +16,7 @@ alias gco='git checkout'
 alias n='nvim' # what can I say, I'm lazy
 alias edit='code' # edit {filename or dir} opens file "filename" or directory "dir" in vscode
 alias venv='source ./venv/bin/activate' # Save a lil bit of time
+alias :q="exit"
 
 # ssh aliases
 alias keys='cd ~/Documents/.keys'
