@@ -10,11 +10,16 @@ alias refresh='source ~/.zshrc' # I'm lazy
 
 
 # Git aliases
-alias gco='git checkout'
+alias g="git"
+alias ga="git add"
+alias gco="git checkout"
+alias push="git push"
+alias pull="git pull"
+alias commit="git commit -m"
+alias uncommit="git reset HEAD~1"
 
 # Workflow aliases
 alias n='nvim' # what can I say, I'm lazy
-alias edit='code' # edit {filename or dir} opens file "filename" or directory "dir" in vscode
 alias venv='source ./venv/bin/activate' # Save a lil bit of time
 alias :q="exit"
 

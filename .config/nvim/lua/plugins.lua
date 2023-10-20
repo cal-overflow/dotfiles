@@ -9,7 +9,6 @@ vim.call('plug#begin')
     Plug('godlygeek/tabular')
     Plug('plasticboy/vim-markdown') -- Note tabular MUST be defined before this
     Plug('neoclide/coc.nvim', {branch = 'release'})
-    Plug('tpope/vim-surround')
     Plug('joenye/coc-cfn-lint')
 
 
