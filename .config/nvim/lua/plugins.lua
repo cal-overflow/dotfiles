@@ -25,9 +25,6 @@ vim.call('plug#begin')
     Plug('nvim-lua/plenary.nvim') -- Dependency for sindrets/diffview.nvim
     Plug('sindrets/diffview.nvim') -- Dependent on nvim-lua/plenary.nvim
 
-    -- Fun
-    Plug('wakatime/vim-wakatime')
-
     -- "Hard mode" lol (allows for disabling arrow keys)
     Plug('wikitopian/hardmode')
 
