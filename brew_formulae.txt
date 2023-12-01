@@ -1,0 +1,3 @@
+nvm
+neovim
+ripgrep
