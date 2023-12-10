@@ -104,15 +104,23 @@ echo "${LIGHT_GRAY}commit gpg signing: enabled${RESET}" | tee -a $DEBUG_LOGFILE
 git config --global core.editor "vim"
 echo "${LIGHT_GRAY}default editor: vim${RESET}" | tee -a $DEBUG_LOGFILE
 
-echo -n "${BOLD}Enter your full name:$RESET "
+PREV_GIT_NAME=$(git config --global user.name)
+echo "${LIGHT_GRAY}Current git user.name: \"$PREV_GIT_NAME\"$RESET" | tee -a $DEBUG_LOGFILE
+echo -n "${BOLD}Enter your full name:$RESET ${LIGHT_GRAY}(Press enter to skip)$RESET "
 read user_name
-git config --global user.name "$user_name"
-echo "git config --global user.name \"$user_name\"" >> $DEBUG_LOGFILE
+if [[ ! -z "$user_email" ]]; then
+  git config --global user.name "$user_name"
+  echo "git config --global user.name \"$user_name\"" >> $DEBUG_LOGFILE
+fi
 
-echo -n "${BOLD}Enter your email address:$RESET "
+PREV_GIT_EMAIL=$(git config --global user.email)
+echo "${LIGHT_GRAY}Current git user.email: \"$PREV_GIT_EMAIL\"$RESET" | tee -a $DEBUG_LOGFILE
+echo -n "${BOLD}Enter your email address:$RESET ${LIGHT_GRAY}(Press enter to skip)$RESET "
 read user_email
-git config --global user.email "$user_email"
-echo "git config --global user.email \"$user_name\"" >> $DEBUG_LOGFILE
+if [[ ! -z "$user_email" ]]; then
+  git config --global user.email "$user_email"
+  echo "git config --global user.email \"$user_name\"" >> $DEBUG_LOGFILE
+fi
 
 # cleanup log file (remove color codes)
 cleaned_logs=$(sed -e "s/\x1B[^m]*m//g" $DEBUG_LOGFILE)
