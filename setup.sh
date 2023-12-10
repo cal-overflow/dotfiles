@@ -23,6 +23,20 @@ get_done_message_based_on_status_code () {
   fi
 }
 
+
+# Clone the repository if this script is called from elsewhere (i.e., quick-setup from README)
+if [[ ! "$(git config --get remote.origin.url)" =~ (https:\/\/|git@)github.com(\/|:)cal-overflow\/dotfiles\.git ]]; then
+  echo -n "Cloning repository cal-overflow/dotfiles from GitHub... " | tee -a $DEBUG_LOGFILE
+
+  # First try cloning with SSH, then try HTTPS as a last resort
+  git clone git@github.com:cal-overflow/dotfiles.git > $DEBUG_LOGFILE 2>&1 ||\
+  git clone https://github.com/cal-overflow/dotfiles.git > $DEBUG_LOGFILE 2>&1
+
+  cd dotfiles
+  echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
+fi
+
+
 echo "\n${BOLD}Installations${RESET}" | tee -a $DEBUG_LOGFILE
 
 echo -n "Installing Oh My Zsh... " | tee -a $DEBUG_LOGFILE

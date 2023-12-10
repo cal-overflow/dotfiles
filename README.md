@@ -1,6 +1,15 @@
 # .config
 Some of my configuration files.
 
+## Automated setup
+I've created a bash script that installs all of my preferred tools and saves my configuration locally. \
+To run the script, simply run the following command.
+```bash
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/cal-overflow/dotfiles/main/setup.sh)"
+```
+
+<small>Note, this has only been tested on unix-based operating systems with zsh installed.</small>
+
 ## [zsh](https://www.zsh.org/)
 Zsh jazzed up with [Oh my ZSH](https://ohmyz.sh/) is my shell of choice.
 
