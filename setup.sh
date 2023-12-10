@@ -37,6 +37,7 @@ if [[ ! "$GIT_CLONE_URL" =~ (https:\/\/|git@)github.com(\/|:)cal-overflow\/dotfi
   cd dotfiles
   echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 fi
+pwd
 
 
 echo "\n${BOLD}Installations${RESET}" | tee -a $DEBUG_LOGFILE
@@ -148,6 +149,5 @@ else
   echo "Some things you may still want to do:"
   echo "1) Configure git credentials (SSH)"
   echo "2) Configure git GPG for signed commits"
-  refresh # for good measure lol
 fi
 
