@@ -43,19 +43,24 @@ echo "\n${BOLD}Installations${RESET}" | tee -a $DEBUG_LOGFILE
 
 echo -n "Installing Oh My Zsh... " | tee -a $DEBUG_LOGFILE
 if [ ! -d ~/.oh-my-zsh ]; then
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended >> $DEBUG_LOGFILE 2>&1
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended >> $DEBUG_LOGFILE 2>&1
 else
-    echo "ZSH detected. Skipping installation" >> $DEBUG_LOGFILE
+  echo "ZSH detected. Skipping installation" >> $DEBUG_LOGFILE
 fi
 echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 
 
 echo -n  "Installing Homebrew... " | tee -a $DEBUG_LOGFILE
 if [ ! $(command -v brew) ]; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> $DEBUG_LOGFILE 2>&1
-	(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/$(whoami)/.zprofile
-    	eval "$(/opt/homebrew/bin/brew shellenv)" >> $DEBUG_LOGFILE 2>&1
-    brew update >> $DEBUG_LOGFILE 2>&1
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> $DEBUG_LOGFILE 2>&1
+
+  if [[ ! -f ~/.zprofile ]]; then
+    touch ~/.zprofile
+  fi
+
+  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)" >> $DEBUG_LOGFILE 2>&1
+  brew update >> $DEBUG_LOGFILE 2>&1
 else
     echo "Homebrew detected. Skipping installation" >> $DEBUG_LOGFILE
 fi
