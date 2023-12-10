@@ -37,7 +37,8 @@ if [[ ! "$GIT_CLONE_URL" =~ (https:\/\/|git@)github.com(\/|:)cal-overflow\/dotfi
   cd dotfiles
   echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 fi
-pwd
+echo "DEBUGGING!!!"
+echo "current directory: $(pwd)"
 
 
 echo "\n${BOLD}Installations${RESET}" | tee -a $DEBUG_LOGFILE
