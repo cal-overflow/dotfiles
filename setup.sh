@@ -7,7 +7,7 @@ LIGHT_GRAY='\033[90m'
 RED='\033[0;31m'
 RESET='\033[0m'
 
-DEBUG_LOGFILE="setup_logfile"
+DEBUG_LOGFILE="$(pwd)/setup_logfile"
 ERROR_DID_OCCUR=1
 
 GIT_CLONE_URL=$(git config --get remote.origin.url)
@@ -37,8 +37,6 @@ if [[ ! "$GIT_CLONE_URL" =~ (https:\/\/|git@)github.com(\/|:)cal-overflow\/dotfi
   cd dotfiles
   echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 fi
-echo "DEBUGGING!!!"
-echo "current directory: $(pwd)"
 
 
 echo "\n${BOLD}Installations${RESET}" | tee -a $DEBUG_LOGFILE
@@ -143,7 +141,7 @@ echo $cleaned_logs > $DEBUG_LOGFILE
 
 if [ $ERROR_DID_OCCUR -eq 0 ]; then
   echo "\n${RED}At least one error occurred during the setup.${RESET}"
-  echo "See $(pwd)/$DEBUG_LOGFILE to troubleshoot errors"
+  echo "See $DEBUG_LOGFILE to troubleshoot errors"
   exit 1
 else
   echo "\n${GREEN}Setup complete${RESET}"
