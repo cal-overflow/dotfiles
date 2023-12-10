@@ -28,7 +28,6 @@ echo "\n${BOLD}Installations${RESET}" | tee -a $DEBUG_LOGFILE
 echo -n "Installing Oh My Zsh... " | tee -a $DEBUG_LOGFILE
 if [ ! -d ~/.oh-my-zsh ]; then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended >> $DEBUG_LOGFILE 2>&1
-    # sh -c askjdaksdj # TODO - remove
 else
     echo "ZSH detected. Skipping installation" >> $DEBUG_LOGFILE
 fi
@@ -49,8 +48,6 @@ echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 echo "${BOLD}Installing formulae${RESET}" | tee -a $DEBUG_LOGFILE
 while read formulae_name; do 
   echo -n "Installing formulae $formulae_name... " | tee -a $DEBUG_LOGFILE
-  # brew uninstall $formulae_name > /dev/null 2>&1 # don't think I need to uninstall this anymore.
-  # don't remember  why i was doing it to begin with
   brew install $formulae_name >> $DEBUG_LOGFILE 2>&1
   echo $(get_done_message_based_on_status_code $?)
 done < brew_formulae.txt
