@@ -10,6 +10,8 @@ RESET='\033[0m'
 DEBUG_LOGFILE="setup_logfile"
 ERROR_DID_OCCUR=1
 
+GIT_CLONE_URL=$(git config --get remote.origin.url)
+
 echo $(date) > $DEBUG_LOGFILE
 echo "${BOLD}Running setup script${RESET}"
 
@@ -25,7 +27,7 @@ get_done_message_based_on_status_code () {
 
 
 # Clone the repository if this script is called from elsewhere (i.e., quick-setup from README)
-if [[ ! "$(git config --get remote.origin.url)" =~ (https:\/\/|git@)github.com(\/|:)cal-overflow\/dotfiles\.git ]]; then
+if [[ ! "$GIT_CLONE_URL" =~ (https:\/\/|git@)github.com(\/|:)cal-overflow\/dotfiles\.git ]]; then
   echo -n "Cloning repository cal-overflow/dotfiles from GitHub... " | tee -a $DEBUG_LOGFILE
 
   # First try cloning with SSH, then try HTTPS as a last resort
