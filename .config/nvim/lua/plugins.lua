@@ -20,8 +20,9 @@ vim.call('plug#begin')
 
     -- Git
     Plug('airblade/vim-gitgutter')
-    Plug('nvim-lua/plenary.nvim') -- Dependency for sindrets/diffview.nvim
+    Plug('nvim-lua/plenary.nvim') -- Dependency for some plugins below
     Plug('sindrets/diffview.nvim') -- Dependent on nvim-lua/plenary.nvim
+    Plug('nvim-telescope/telescope.nvim', { tag = '0.1.x' }) -- Dependent on nvim-lua/plenary.nvim, also depends on ripgrep!
 
     -- "Hard mode" lol (allows for disabling arrow keys)
     Plug('wikitopian/hardmode')
@@ -72,3 +73,7 @@ require("diffview").setup({
   use_icons = false,
 })
 vim.cmd 'command! Diff DiffviewOpen' -- create alias
+
+
+-- Configure telescope
+require('telescope').setup({})

@@ -35,6 +35,7 @@ vim.g.NERDTreeHijackNetrw=1
 vim.opt.undofile=true
 
 -- Require modules
+-- require('telescope-themes')
 require('plugins')
 
 -- Load mappings
