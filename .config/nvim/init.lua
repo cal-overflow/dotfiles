@@ -37,6 +37,7 @@ vim.opt.undofile=true
 -- Require modules
 -- require('telescope-themes')
 require('plugins')
+require('setup-lsp')
 
 -- Load mappings
 vim.cmd('so ~/.config/nvim/mappings.vim')

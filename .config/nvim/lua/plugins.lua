@@ -20,7 +20,7 @@ vim.call('plug#begin')
 
     -- Git
     Plug('airblade/vim-gitgutter')
-    Plug('nvim-lua/plenary.nvim') -- Dependency for some plugins below
+    Plug('nvim-lua/plenary.nvim') -- Dependency for some plugins below,
     Plug('sindrets/diffview.nvim') -- Dependent on nvim-lua/plenary.nvim
     Plug('nvim-telescope/telescope.nvim', { tag = '0.1.x' }) -- Dependent on nvim-lua/plenary.nvim, also depends on ripgrep!
 
@@ -46,8 +46,6 @@ if exists('+termguicolors')
 endif
 ]])
 
--- Configure LSP
-require('lspconfig').pyright.setup{}
 
 
 -- Configure suggestions/autocomplete (Conquerer of Completion)

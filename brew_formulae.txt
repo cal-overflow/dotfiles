@@ -1,3 +1,4 @@
 nvm
 neovim
 ripgrep
+lua-language-server
