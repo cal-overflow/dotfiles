@@ -14,11 +14,9 @@ vim.cmd 'command! CocInstall coc-tsserver' -- TypeScript/JavaScript
 
 require('lspconfig').clangd.setup{}
 require('lspconfig').cmake.setup{}
--- require('lspconfig').eslint.setup{}
 require('lspconfig').html.setup{}
 require('lspconfig').java_language_server.setup{}
 require('lspconfig').jsonls.setup{}
-require('lspconfig').marksman.setup{} -- Markdown
 require('lspconfig').pyright.setup{} -- Python
 require('lspconfig').rust_analyzer.setup{}
 require('lspconfig').bashls.setup{} -- bash
