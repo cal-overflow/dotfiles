@@ -8,7 +8,6 @@ vim.call('plug#begin')
     Plug('plasticboy/vim-markdown') -- Note tabular MUST be defined before this
     Plug('neoclide/coc.nvim', {branch = 'release'})
     Plug('joenye/coc-cfn-lint')
-    Plug('dhruvasagar/vim-table-mode')
 
 
     -- LSP (Language Server)
