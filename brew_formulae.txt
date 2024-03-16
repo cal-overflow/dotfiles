@@ -2,3 +2,6 @@ nvm
 neovim
 ripgrep
 lua-language-server
+jq
+yq
+karabiner-elements

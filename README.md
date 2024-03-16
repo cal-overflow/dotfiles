@@ -10,8 +10,10 @@ zsh -c "$(curl -fsSL https://raw.githubusercontent.com/cal-overflow/dotfiles/mai
 
 <small>Note, this has only been tested on unix-based operating systems with zsh installed.</small>
 
+
 ## [zsh](https://www.zsh.org/)
 Zsh jazzed up with [Oh my ZSH](https://ohmyz.sh/) is my shell of choice.
+
 
 ## [Neovim](https://neovim.io)
 
@@ -54,3 +56,6 @@ The following dependencies may be needed for neovim to work properly.
 ##### Other helpful resources
 - [multiline editing (multi-cursor alternative) - Stack Overflow](https://stackoverflow.com/questions/11784408/vim-multiline-editing-like-in-sublimetext)
 
+
+## Keyboard
+I have saved my custom keyboard firmware (GMK) configuration in this repository. You can learn more about how to compile and flash onto a compatible keyboard [here](https://docs.qmk.fm/#/newbs).

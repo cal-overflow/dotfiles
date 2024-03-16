@@ -97,6 +97,13 @@ echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 nvm use | tee -a $DEBUG_LOGFILE
 
 
+# LSP installation (node modules)
+
+echo -n "Installing LSP Servers via NPM... " | tee -a $DEBUG_LOGFILE # necessary for some neovim plugins
+npm i -g vscode-langservers-extracted 2>&1
+echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
+
+
 ##############
 # Neovim setup
 ##############

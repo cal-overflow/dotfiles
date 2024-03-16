@@ -74,4 +74,10 @@ vim.cmd 'command! Diff DiffviewOpen' -- create alias
 
 
 -- Configure telescope
-require('telescope').setup({})
+require('telescope').setup({
+  pickers = {
+    find_files = {
+      hidden = true,
+    },
+  },
+})
