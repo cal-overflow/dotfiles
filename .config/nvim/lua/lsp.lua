@@ -2,8 +2,7 @@
 local lsp_zero = require('lsp-zero').preset({})
 
 lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
+  -- :help lsp-zero-keybindings for available actions
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
@@ -13,19 +12,10 @@ require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
 
 lsp_zero.setup()
 
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-
-vim.lsp.set_log_level('debug') -- TODO remove
-
--- Server-level settings
+-- Settings for each language server
+-- Only add servers here that have custom settings
+-- NOTE: in order for these settings to take effect, must declare the use of custom_server_handler for Mason (see below).
 local server_settings = {
-  tailwindcss = {},
-  tsserver = {},
-  bashls = {},
-  pyright = {},
   jsonls = {
     json = {
       schemas = require('schemastore').json.schemas(),
@@ -33,6 +23,7 @@ local server_settings = {
     },
   },
   yamlls = {
+    -- TODO complete setting up yaml ls settings
     yaml = {
       schemaStore = {
         -- Required for leverageing b0o/schemastore plugin
@@ -43,92 +34,40 @@ local server_settings = {
       -- format = {
       --   enable = true,
       -- },
-      -- hover = true,
       -- completion = true,
-      -- schemas = {
-      --   ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-      -- },
       -- customTags = {
-      --   -- Cloudformation tags
-      --   "!And scalar",
-      --   "!If scalar",
-      --   "!Not",
-      --   "!Equals scalar",
-      --   "!Or scalar",
-      --   "!FindInMap scalar",
-      --   "!Base64",
-      --   "!Cidr",
       --   "!Ref",
+      --   "!GetAtt",
       --   "!Sub",
-      --   "!GetAtt sequence",
-      --   "!GetAZs",
-      --   "!ImportValue sequence",
-      --   "!Select sequence",
-      --   "!Split sequence",
-      --   "!Join sequence"
-      -- },
+      -- }
     },
   },
-  terraformls = {},
-  marksman = {},
-  clangd = {},
 }
 
--- local function on_attach(client, bufnr)
---   client.server_capabilities.documentFormattingProvider = true
---   print(server_name .. ' lsp attached (debug log)') -- TODO remove
--- end
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities();
+
+local function custom_server_handler(server_name)
+  require('lspconfig')[server_name].setup({
+    capabilities = capabilities,
+    settings = server_settings[server_name],
+    on_attach = function(client, _)
+      client.server_capabilities.documentFormattingProvider = true
+      print('LSP ' .. server_name .. ' attached') -- nice to have for debugging custom servers
+    end
+  })
+end
 
 
 -- Configure mason
 require("mason").setup({})
 require("mason-lspconfig").setup({
-  ensure_installed = {}, -- installing these through setup script for simpler setup/management
+  ensure_installed = {}, -- Managed in setup script for simpler setup/management
   handlers = {
     lsp_zero.default_setup,
-    function(server_name)
-      require('lspconfig')[server_name].setup({
-        capabilities = capabilities,
-        settings = server_settings[server_settings],
-        -- on_attach = on_attach,
-        on_attach = function(client, bufnr) -- could move this to variable
-          client.server_capabilities.documentFormattingProvider = true
-          print('hello.' .. server_name .. ' lsp attached (debug log)') -- TODO remove
-        end,
-      })
-    end,
-    -- Just trying to focus on yamlls for now... should remove this
-    yamlls = function()
-      require('lspconfig').yamlls.setup({
-        capabilities = capabilities,
-        settings = server_settings['yamlls'],
-        on_attach = function(client, bufnr)
-          client.server_capabilities.documentFormattingProvider = true
-          print('hello yaml lang server ') -- TODO remove
-          print("settings", server_settings['yamlls']) -- TODO remove
-        end
-      })
-    end,
+    -- Servers with custom settings must use the custom_server_handler to pass settings
+    yamlls = custom_server_handler,
+    jsonls = custom_server_handler,
   }
 })
 
-
-
-
-
--- OLD
--- Grant autocomplate capabilities
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
--- 
--- require('lspconfig').clangd.setup{ capabilities = capabilities }
--- require('lspconfig').cmake.setup{ capabilities = capabilities }
--- require('lspconfig').java_language_server.setup{ capabilities = capabilities }
--- require('lspconfig').html.setup{ capabilities = capabilities }
--- require('lspconfig').cssls.setup{ capabilities = capabilities }
--- require('lspconfig').jsonls.setup{ capabilities = capabilities }
--- require('lspconfig').pyright.setup{ capabilities = capabilities } -- Python
--- require('lspconfig').rust_analyzer.setup{ capabilities = capabilities }
--- require('lspconfig').bashls.setup{ capabilities = capabilities } -- bash
--- require('lspconfig').lua_ls.setup{ capabilities = capabilities }
--- require('lspconfig').tsserver.setup{ capabilities = capabilities } -- TypeScript/JavaScript

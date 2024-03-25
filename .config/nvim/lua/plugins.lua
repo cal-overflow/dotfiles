@@ -27,9 +27,5 @@ vim.call('plug#begin')
     Plug('nvim-lua/plenary.nvim') -- Dependency for some plugins below,
     Plug('sindrets/diffview.nvim') -- Dependent on nvim-lua/plenary.nvim
     Plug('nvim-telescope/telescope.nvim', { tag = '0.1.x' }) -- Dependent on nvim-lua/plenary.nvim, also depends on ripgrep!
-
-    -- "Hard mode" lol (allows for disabling arrow keys)
-    Plug('wikitopian/hardmode')
-
 vim.call('plug#end')
 
