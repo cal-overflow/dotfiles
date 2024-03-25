@@ -25,7 +25,6 @@ get_done_message_based_on_status_code () {
   fi
 }
 
-
 # Clone the repository if this script is called from elsewhere (i.e., quick-setup from README)
 if [[ ! "$GIT_CLONE_URL" =~ (https:\/\/|git@)github.com(\/|:)cal-overflow\/dotfiles\.git ]]; then
   echo -n "Cloning repository cal-overflow/dotfiles from GitHub... " | tee -a $DEBUG_LOGFILE
@@ -91,23 +90,23 @@ source ~/.zshrc
 echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 
 
-echo -n "Installing Node LTS... " | tee -a $DEBUG_LOGFILE # necessary for some neovim plugins
-nvm install >> $DEBUG_LOGFILE 2>&1
-echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
-nvm use | tee -a $DEBUG_LOGFILE
+# echo -n "Installing Node LTS... " | tee -a $DEBUG_LOGFILE # necessary for some neovim plugins
+# nvm install >> $DEBUG_LOGFILE 2>&1
+# echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
+# nvm use | tee -a $DEBUG_LOGFILE
 
 
-# LSP installation (node modules)
-
-echo -n "Installing LSP Servers via NPM... " | tee -a $DEBUG_LOGFILE # necessary for some neovim plugins
-npm i -g vscode-langservers-extracted 2>&1
-echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
+# # LSP installation (node modules)
+# echo -n "Installing LSP Servers via NPM... " | tee -a $DEBUG_LOGFILE # necessary for some neovim plugins
+# npm i -g vscode-langservers-extracted 2>&1
+# echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 
 
 ##############
 # Neovim setup
 ##############
 echo "\n${BOLD}Neovim${RESET}" | tee -a $DEBUG_LOGFILE
+mkdir ~/.config/nvim >> $DEBUG_LOGFILE 2>&1
 echo -n "Saving repository config in ~/.config/nvim... " | tee -a $DEBUG_LOGFILE
 cp -r .config/nvim/* ~/.config/nvim/.
 echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
@@ -121,6 +120,13 @@ echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 echo -n "Installing neovim plugins... " | tee -a $DEBUG_LOGFILE
 nvim --headless +PlugClean! +PlugInstall +qa
 echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
+
+echo "${BOLD}Installing LSP servers through neovim mason${RESET}" | tee -a $DEBUG_LOGFILE
+while read server; do 
+  echo -n "Installing language server $server... " | tee -a $DEBUG_LOGFILE
+  nvim --headless  -c "MasonInstall $server" -c qa >> $DEBUG_LOGFILE 2>&1
+  echo $(get_done_message_based_on_status_code $?)
+done < language_servers.txt
 
 
 echo "\n${BOLD}Git ${LIGHT_GRAY}(interactive)${RESET}" | tee -a $DEBUG_LOGFILE
