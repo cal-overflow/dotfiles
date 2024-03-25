@@ -95,6 +95,7 @@ echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 nvm use | tee -a $DEBUG_LOGFILE
 
 echo -n "Configuring global python... " | tee -a $DEBUG_LOGFILE # necessary for some LSP installs (managed through mason.neovim)
+pyenv install 3.8 >> $DEBUG_LOGFILE 2>&1
 pyenv global 3.8 >> $DEBUG_LOGFILE 2>&1
 echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 
