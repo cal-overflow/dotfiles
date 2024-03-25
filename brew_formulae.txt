@@ -1,4 +1,5 @@
 nvm
+pyenv
 neovim
 ripgrep
 lua-language-server

@@ -37,7 +37,6 @@ if [[ ! "$GIT_CLONE_URL" =~ (https:\/\/|git@)github.com(\/|:)cal-overflow\/dotfi
   echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 fi
 
-
 echo "\n${BOLD}Installations${RESET}" | tee -a $DEBUG_LOGFILE
 
 echo -n "Installing Oh My Zsh... " | tee -a $DEBUG_LOGFILE
@@ -59,13 +58,13 @@ if [ ! $(command -v brew) ]; then
 
   (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)" >> $DEBUG_LOGFILE 2>&1
-  brew update >> $DEBUG_LOGFILE 2>&1
 else
     echo "Homebrew detected. Skipping installation" >> $DEBUG_LOGFILE
 fi
 echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 
 echo "${BOLD}Installing formulae${RESET}" | tee -a $DEBUG_LOGFILE
+brew update >> $DEBUG_LOGFILE 2>&1
 while read formulae_name; do 
   echo -n "Installing formulae $formulae_name... " | tee -a $DEBUG_LOGFILE
   brew install $formulae_name >> $DEBUG_LOGFILE 2>&1
@@ -95,6 +94,13 @@ nvm install >> $DEBUG_LOGFILE 2>&1
 echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 nvm use | tee -a $DEBUG_LOGFILE
 
+echo -n "Configuring global python... " | tee -a $DEBUG_LOGFILE # necessary for some LSP installs (managed through mason.neovim)
+pyenv global 3.8 >> $DEBUG_LOGFILE 2>&1
+echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
+
+echo -n "Installing Powerline fonts... " | tee -a $DEBUG_LOGFILE # necessary for neovim status line (airline)
+python3 -m pip install --user powerline-status >> $DEBUG_LOGFILE 2>&1
+echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 
 # # LSP installation (node modules)
 # echo -n "Installing LSP Servers via NPM... " | tee -a $DEBUG_LOGFILE # necessary for some neovim plugins
