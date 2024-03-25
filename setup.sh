@@ -90,10 +90,10 @@ source ~/.zshrc
 echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
 
 
-# echo -n "Installing Node LTS... " | tee -a $DEBUG_LOGFILE # necessary for some neovim plugins
-# nvm install >> $DEBUG_LOGFILE 2>&1
-# echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
-# nvm use | tee -a $DEBUG_LOGFILE
+echo -n "Installing Node LTS... " | tee -a $DEBUG_LOGFILE # necessary for some LSP installs (managed through mason.neovim)
+nvm install >> $DEBUG_LOGFILE 2>&1
+echo $(get_done_message_based_on_status_code $?) | tee -a $DEBUG_LOGFILE
+nvm use | tee -a $DEBUG_LOGFILE
 
 
 # # LSP installation (node modules)
